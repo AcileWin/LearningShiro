@@ -1,4 +1,4 @@
-package com.rengu.cc;
+package com.rengu.cc.testLogging;
 
 import com.sun.org.apache.bcel.internal.util.ClassPath;
 import org.apache.shiro.SecurityUtils;
