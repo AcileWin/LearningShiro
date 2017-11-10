@@ -1,5 +1,6 @@
 package com.rengu.cc.testLogging;
 
+import com.rengu.cc.shiroUtill.ShiroUtil;
 import com.sun.org.apache.bcel.internal.util.ClassPath;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
@@ -13,7 +14,7 @@ import org.apache.shiro.util.Factory;
 
 public class LearningShiro {
     public static void main(String[] args){
-        Factory<SecurityManager> factory = new IniSecurityManagerFactory("classpath:shiro.ini");
+        /*Factory<SecurityManager> factory = new IniSecurityManagerFactory("classpath:shiro.ini");
         SecurityManager securityManager = factory.getInstance();
         SecurityUtils.setSecurityManager(securityManager);
         Subject currentSubject = SecurityUtils.getSubject();
@@ -31,7 +32,12 @@ public class LearningShiro {
         }
         System.out.println("登陆成功");
         currentSubject.logout();
-        System.out.println("退出登陆成功");
+        System.out.println("退出登陆成功");*/
+        Subject currentUser = ShiroUtil.login("shiro1.ini","zhouguang","666666");
+
+        System.out.println("登陆成功");
+        currentUser.logout();
+        System.out.println("退出登陆");
     }
 
 }
