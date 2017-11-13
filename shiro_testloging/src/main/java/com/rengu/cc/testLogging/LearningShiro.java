@@ -12,8 +12,12 @@ import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.subject.Subject;
 import org.apache.shiro.util.Factory;
 
+import java.awt.image.RasterOp;
+
 public class LearningShiro {
     public static void main(String[] args){
+
+        // 测试shiro.ini
         /*Factory<SecurityManager> factory = new IniSecurityManagerFactory("classpath:shiro.ini");
         SecurityManager securityManager = factory.getInstance();
         SecurityUtils.setSecurityManager(securityManager);
@@ -33,11 +37,44 @@ public class LearningShiro {
         System.out.println("登陆成功");
         currentSubject.logout();
         System.out.println("退出登陆成功");*/
-        Subject currentUser = ShiroUtil.login("shiro1.ini","zhouguang","666666");
 
+        // 测试shiro1.ini
+        /*Subject currentUser = ShiroUtil.login("shiro1.ini","zhouguang","666666");
         System.out.println("登陆成功");
         currentUser.logout();
+        System.out.println("退出登陆");*/
+
+        // 测试shiro3.ini
+        // testS3INI();
+
+        // 测试shiro2.ini
+        testS2INI();
+    }
+    // 测试shiro2.ini
+    public static void testS2INI(){
+        Factory<SecurityManager> factory = new IniSecurityManagerFactory("classpath:shiro2.ini");
+        SecurityManager securityManager = factory.getInstance();
+        SecurityUtils.setSecurityManager(securityManager);
+        Subject currentSubject = SecurityUtils.getSubject();
+        UsernamePasswordToken token = new UsernamePasswordToken("liwei","23456");
+        currentSubject.login(token);
+        System.out.println("登陆成功");
+        currentSubject.logout();
         System.out.println("退出登陆");
     }
 
+    // 测试shiro3.ini
+    public static void testS3INI(){
+        Factory<SecurityManager> factory = new IniSecurityManagerFactory("classpath:shiro3.ini");
+        SecurityManager securityManager = factory.getInstance();
+        SecurityUtils.setSecurityManager(securityManager);
+        Subject currentSubject = SecurityUtils.getSubject();
+        UsernamePasswordToken token = new UsernamePasswordToken("liwei","13456");
+
+            currentSubject.login(token);
+
+        System.out.println("登陆成功");
+        currentSubject.logout();
+        System.out.println("退出登陆成功");
+    }
 }
