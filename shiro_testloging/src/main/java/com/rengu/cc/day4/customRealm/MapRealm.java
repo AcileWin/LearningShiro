@@ -1,4 +1,4 @@
-package com.rengu.cc.customRealm;
+package com.rengu.cc.day4.customRealm;
 
 import org.apache.shiro.authc.*;
 import org.apache.shiro.realm.Realm;

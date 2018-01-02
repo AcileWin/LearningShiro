@@ -1,4 +1,4 @@
-package com.rengu.cc.shiroUtill;
+package com.rengu.cc.day2.shiroUtill;
 
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;

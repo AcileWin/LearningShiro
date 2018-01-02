@@ -1,18 +1,11 @@
-package com.rengu.cc.testLogging;
+package com.rengu.cc.day1.testLogging;
 
-import com.rengu.cc.shiroUtill.ShiroUtil;
-import com.sun.org.apache.bcel.internal.util.ClassPath;
 import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.authc.AuthenticationException;
-import org.apache.shiro.authc.IncorrectCredentialsException;
-import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.config.IniSecurityManagerFactory;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.subject.Subject;
 import org.apache.shiro.util.Factory;
-
-import java.awt.image.RasterOp;
 
 public class LearningShiro {
     public static void main(String[] args){

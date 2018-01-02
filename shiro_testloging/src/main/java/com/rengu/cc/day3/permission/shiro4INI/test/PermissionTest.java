@@ -1,6 +1,6 @@
-package com.rengu.cc.permission.shiro4INI.test;
+package com.rengu.cc.day3.permission.shiro4INI.test;
 
-import com.rengu.cc.shiroUtill.ShiroUtil;
+import com.rengu.cc.day2.shiroUtill.ShiroUtil;
 import org.apache.shiro.subject.Subject;
 import org.junit.Test;
 

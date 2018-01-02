@@ -1,22 +1,41 @@
-package com.rengu.cc.customRealm;
+package com.rengu.cc.day5.MyStaticRealm;
 
+import com.rengu.cc.day5.customPermission.MyPermission;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
+import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 
 /**
  * @Author:LiuFeng
- * @Description:
- * @Date:16:02 2017/11/13
+ * @Description:实现授权操作
+ * @Date:13:41 2017/11/15
  * @ClassName:shiro1
  */
 public class MyStaticRealm extends AuthorizingRealm{
-    // 用于授权
+
+    /**
+     * 用于授权
+     * @param principalCollection
+     * @return
+     */
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
-        return null;
+        System.out.println("static Realm 中授权方法");
+        SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
+        info.addRole("r1");
+        info.addRole("r2");
+        info.addStringPermission("+user+");
+        info.addObjectPermission(new MyPermission("+user+add+1"));
+        return info;
     }
-    // 用于认证
+
+    /**
+     * 用于认证
+     * @param token
+     * @return
+     * @throws AuthenticationException
+     */
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
         String userName = token.getPrincipal().toString();
         String password = new String((char[]) token.getCredentials());
